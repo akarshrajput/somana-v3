@@ -110,6 +110,10 @@ podcastSchema.virtual("totalEngagement").get(function () {
   return this.viewsCount + this.downloadCount;
 });
 
+podcastSchema.virtual("authorID").get(function () {
+  return this.author._id;
+});
+
 const Podcast =
   mongoose.models.Podcast || mongoose.model("Podcast", podcastSchema);
 

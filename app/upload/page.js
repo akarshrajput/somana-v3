@@ -16,6 +16,7 @@ const page = () => {
               Write Story
             </Button>
           </Link>
+
           <Separator className="my-2" />
           <Link href="/music/upload">
             <Button className="w-full" variant="outline">

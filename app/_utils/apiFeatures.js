@@ -9,6 +9,11 @@ class APIFeatures {
     const excludedFields = ["page", "sort", "limit", "fields"];
     excludedFields.forEach((el) => delete queryObj[el]);
 
+    if (queryObj.authorID) {
+      queryObj.author = queryObj.authorID; // Ensure to map authorID to author field in the model
+      delete queryObj.authorID; // Remove authorID from the queryObj to prevent duplicate filtering
+    }
+
     // Partial matching for heading field
     if (queryObj.heading) {
       queryObj.heading = { $regex: queryObj.heading, $options: "i" }; // Case-insensitive partial match
